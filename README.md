@@ -1,11 +1,13 @@
 # TechKeeper - Home Management Platform
+![TechKeeper Banner](techkeeper-banner.png) 
+
+## 📖 About The Project
+TechKeeper is a high-fidelity, responsive static web application designed as a comprehensive home management suite. It allows homeowners to digitize their assets, manage warranties, store documentation, and stay ahead of maintenance tasks through a sleek, mobile-first interface.
 
 [![Platform](https://img.shields.io/badge/Platform-Web-teal.svg?style=flat-square)](https://github.com/yourusername/TechKeeper)
 [![Languages](https://img.shields.io/badge/Languages-HTML%20%7C%20CSS%20%7C%20JS-blue.svg?style=flat-square)](https://github.com/yourusername/TechKeeper)
 [![UI/UX](https://img.shields.io/badge/UI%2FUX-Mobile--First-00C9A7.svg?style=flat-square)](https://github.com/yourusername/TechKeeper)
 [![License](https://img.shields.io/badge/License-MIT-lightgrey.svg?style=flat-square)](LICENSE)
-
-TechKeeper is a high-fidelity, responsive static web application designed as a comprehensive home management suite. It allows homeowners to digitize their assets, manage warranties, store documentation, and stay ahead of maintenance tasks through a sleek, mobile-first interface.
 
 ## 🚀 Key Features
 
