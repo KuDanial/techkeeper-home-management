@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar - TechKeeper</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .timeline {
+            position: relative;
+            padding: 1rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            padding-left: 50px;
+        }
+
+        .timeline-marker {
+            position: absolute;
+            left: 11px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: white;
+            border: 3px solid var(--primary-accent);
+            z-index: 1;
+        }
+
+        .timeline-date {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--text-gray);
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 1rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+        }
+
+        .timeline-content:active {
+            transform: scale(0.98);
+        }
+
+        .event-type {
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        .type-maintenance { background: #E3F2FD; color: #1976D2; }
+        .type-warranty { background: #FFF3E0; color: #F57C00; }
+        .type-task { background: #E8F5E9; color: #388E3C; }
+
+        .calendar-header {
+            background: white;
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <button class="icon-btn"><i class="fas fa-bars"></i></button>
+            <h1>Calendar</h1>
+            <button class="icon-btn"><i class="far fa-user"></i></button>
+        </header>
+
+        <div class="calendar-header">
+            <h2 style="font-size: 1rem;">May 2026</h2>
+            <div style="display: flex; gap: 10px;">
+                <button class="icon-btn" style="color: var(--text-dark);"><i class="fas fa-chevron-left"></i></button>
+                <button class="icon-btn" style="color: var(--text-dark);"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+
+        <main class="content-area">
+            <div class="timeline">
+                <!-- Event 1: Maintenance -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-date">Today • May 6</div>
+                    <div class="timeline-content" onclick="location.href='educate.html'">
+                        <span class="event-type type-maintenance">Maintenance</span>
+                        <h4 class="text-sm">Change HVAC Filter</h4>
+                        <p class="text-xs text-gray" style="margin-top: 4px;">Main Unit • Recommended every 3 months</p>
+                    </div>
+                </div>
+
+                <!-- Event 2: Task -->
+                <div class="timeline-item">
+                    <div class="timeline-marker" style="border-color: #388E3C;"></div>
+                    <div class="timeline-date">Tomorrow • May 7</div>
+                    <div class="timeline-content">
+                        <span class="event-type type-task">Task</span>
+                        <h4 class="text-sm">Pay Electric Bill</h4>
+                        <p class="text-xs text-gray" style="margin-top: 4px;">Due by 5:00 PM • $142.50</p>
+                    </div>
+                </div>
+
+                <!-- Event 3: Warranty -->
+                <div class="timeline-item">
+                    <div class="timeline-marker" style="border-color: #F57C00;"></div>
+                    <div class="timeline-date">May 20</div>
+                    <div class="timeline-content" onclick="location.href='warranty-details.html'">
+                        <span class="event-type type-warranty">Warranty Expiry</span>
+                        <h4 class="text-sm">Samsung Fridge Warranty</h4>
+                        <p class="text-xs text-gray" style="margin-top: 4px;">Expires in 14 days • Parts & Labor coverage</p>
+                    </div>
+                </div>
+
+                <!-- Event 4: Task -->
+                <div class="timeline-item">
+                    <div class="timeline-marker" style="border-color: #388E3C;"></div>
+                    <div class="timeline-date">May 25</div>
+                    <div class="timeline-content">
+                        <span class="event-type type-task">Task</span>
+                        <h4 class="text-sm">Renew Internet Contract</h4>
+                        <p class="text-xs text-gray" style="margin-top: 4px;">Current promo expires June 1st</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <nav class="bottom-nav">
+            <a href="index.html" class="nav-item">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="catalog.html" class="nav-item">
+                <i class="fas fa-th-large"></i>
+                <span>Inventory</span>
+            </a>
+            <a href="calendar.html" class="nav-item active">
+                <i class="fas fa-calendar-alt"></i>
+                <span>Calendar</span>
+            </a>
+            <a href="contacts.html" class="nav-item">
+                <i class="fas fa-address-book"></i>
+                <span>Contacts</span>
+            </a>
+            <a href="support.html" class="nav-item">
+                <i class="fas fa-headset"></i>
+                <span>Help</span>
+            </a>
+        </nav>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

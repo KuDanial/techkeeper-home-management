@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
                 <nav class="drawer-nav">
                     <a href="index.html" class="drawer-item"><i class="fas fa-home"></i> <span>Home</span></a>
+                    <a href="calendar.html" class="drawer-item"><i class="fas fa-calendar-alt"></i> <span>Calendar</span></a>
                     <a href="profile.html" class="drawer-item"><i class="fas fa-user-circle"></i> <span>My Profile</span></a>
                     <a href="catalog.html" class="drawer-item"><i class="fas fa-th-large"></i> <span>Inventory</span></a>
                     <a href="contacts.html" class="drawer-item"><i class="fas fa-address-book"></i> <span>Contacts</span></a>
