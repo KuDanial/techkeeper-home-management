@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How It Works - TechKeeper</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <button class="icon-btn"><i class="fas fa-bars"></i></button>
+            <h1>TechKeeper</h1>
+            <button class="icon-btn"><i class="far fa-user"></i></button>
+        </header>
+
+        <main class="content-area" style="padding: 0;">
+            <!-- Hero -->
+            <div style="background: var(--primary-dark); color: white; padding: 3rem 1.5rem; text-align: center;">
+                <h2 style="font-size: 1.8rem; margin-bottom: 1rem;">Own your home like a pro</h2>
+                <p class="text-sm" style="opacity: 0.8; margin-bottom: 2rem;">Digital records and maintenance plans for the most important place in your life.</p>
+                <button class="btn btn-primary" style="width: 100%; max-width: 250px;" onclick="location.href='catalog.html'">Get Started</button>
+            </div>
+
+            <!-- Steps -->
+            <div style="padding: 2rem 1.5rem;">
+                <h3 style="text-align: center; margin-bottom: 2rem;">How it works</h3>
+
+                <div style="display: flex; gap: 20px; margin-bottom: 2.5rem;">
+                    <div style="width: 40px; height: 40px; background: var(--bg-white); border: 2px solid var(--primary-accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0; color: var(--primary-accent);">1</div>
+                    <div>
+                        <h4 class="text-sm">Build your digital home</h4>
+                        <p class="text-xs text-gray">Add appliances, systems, and finishes to your catalog. TechKeeper pulls in manuals and warranties automatically.</p>
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 20px; margin-bottom: 2.5rem;">
+                    <div style="width: 40px; height: 40px; background: var(--bg-white); border: 2px solid var(--primary-accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0; color: var(--primary-accent);">2</div>
+                    <div>
+                        <h4 class="text-sm">Stay ahead of maintenance</h4>
+                        <p class="text-xs text-gray">Get personalized alerts for filter changes, inspections, and cleaning. Never miss a critical task again.</p>
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 20px; margin-bottom: 2.5rem;">
+                    <div style="width: 40px; height: 40px; background: var(--bg-white); border: 2px solid var(--primary-accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0; color: var(--primary-accent);">3</div>
+                    <div>
+                        <h4 class="text-sm">Connect with pros</h4>
+                        <p class="text-xs text-gray">Store your trusted contacts or find local pros who know your home's systems.</p>
+                    </div>
+                </div>
+
+                <!-- Call to action -->
+                <div class="card" style="background: var(--bg-light); border: 1px solid var(--border-color); padding: 1.5rem; text-align: center;">
+                    <h4 class="text-sm">Ready to start?</h4>
+                    <p class="text-xs text-gray" style="margin: 0.5rem 0 1rem;">Add your first appliance to see the magic.</p>
+                    <button class="btn-action" onclick="location.href='add-item.html'"><i class="fas fa-plus"></i> Add Item</button>
+                </div>
+            </div>
+        </main>
+
+        <nav class="bottom-nav">
+            <a href="index.html" class="nav-item">
+                <i class="fas fa-home"></i>
+                <span>Maintain</span>
+            </a>
+            <a href="catalog.html" class="nav-item">
+                <i class="fas fa-th-large"></i>
+                <span>Catalog</span>
+            </a>
+            <a href="contacts.html" class="nav-item">
+                <i class="fas fa-address-book"></i>
+                <span>Contacts</span>
+            </a>
+            <a href="support.html" class="nav-item">
+                <i class="fas fa-headset"></i>
+                <span>Support</span>
+            </a>
+        </nav>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory - TechKeeper</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <button class="icon-btn"><i class="fas fa-bars"></i></button>
+            <h1>Inventory</h1>
+            <button class="icon-btn"><i class="far fa-user"></i></button>
+        </header>
+
+        <div class="search-container">
+            <div class="search-bar">
+                <i class="fas fa-search text-gray"></i>
+                <input type="text" placeholder="Search ...">
+            </div>
+        </div>
+
+        <main class="content-area" style="padding: 0;">
+            <div class="category-list">
+                <!-- Category 1: Appliances -->
+                <a href="inventory-list.html" class="category-item">
+                    <div class="category-icon">
+                        <i class="fas fa-columns"></i>
+                    </div>
+                    <div class="category-text">
+                        <h4 class="text-sm">Appliances</h4>
+                        <p class="text-xs text-gray">3 item(s)</p>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray"></i>
+                </a>
+
+                <!-- Category 2: Door, Window & Garage -->
+                <a href="#" class="category-item">
+                    <div class="category-icon">
+                        <i class="fas fa-th-large"></i>
+                    </div>
+                    <div class="category-text">
+                        <h4 class="text-sm">Door, Window & Garage</h4>
+                        <p class="text-xs text-gray">2 item(s)</p>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray"></i>
+                </a>
+
+                <!-- Category 3: Exterior -->
+                <a href="#" class="category-item">
+                    <div class="category-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="category-text">
+                        <h4 class="text-sm">Exterior</h4>
+                        <p class="text-xs text-gray">2 item(s)</p>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray"></i>
+                </a>
+
+                <!-- Category 4: Furniture -->
+                <a href="#" class="category-item">
+                    <div class="category-icon">
+                        <i class="fas fa-chair"></i>
+                    </div>
+                    <div class="category-text">
+                        <h4 class="text-sm">Furniture</h4>
+                        <p class="text-xs text-gray">4 item(s)</p>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray"></i>
+                </a>
+
+                <!-- Category 5: Heating & Cooling -->
+                <a href="#" class="category-item">
+                    <div class="category-icon">
+                        <i class="fas fa-snowflake"></i>
+                    </div>
+                    <div class="category-text">
+                        <h4 class="text-sm">Heating & Cooling</h4>
+                        <p class="text-xs text-gray">2 item(s)</p>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray"></i>
+                </a>
+
+                <!-- Category 6: Home Cosmetics -->
+                <a href="#" class="category-item">
+                    <div class="category-icon">
+                        <i class="fas fa-paint-roller"></i>
+                    </div>
+                    <div class="category-text">
+                        <h4 class="text-sm">Home Cosmetics</h4>
+                        <p class="text-xs text-gray">1 item(s)</p>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray"></i>
+                </a>
+
+                <!-- Category 7: Plumbing -->
+                <a href="#" class="category-item">
+                    <div class="category-icon">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <div class="category-text">
+                        <h4 class="text-sm">Plumbing</h4>
+                        <p class="text-xs text-gray">3 item(s)</p>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray"></i>
+                </a>
+
+                <!-- Category 8: Electrical -->
+                <a href="#" class="category-item">
+                    <div class="category-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div class="category-text">
+                        <h4 class="text-sm">Electrical</h4>
+                        <p class="text-xs text-gray">2 item(s)</p>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray"></i>
+                </a>
+
+                <!-- Category 9: Garden & Landscaping -->
+                <a href="#" class="category-item">
+                    <div class="category-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <div class="category-text">
+                        <h4 class="text-sm">Garden & Landscaping</h4>
+                        <p class="text-xs text-gray">5 item(s)</p>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray"></i>
+                </a>
+
+                <!-- Category 10: Security Systems -->
+                <a href="#" class="category-item">
+                    <div class="category-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="category-text">
+                        <h4 class="text-sm">Security Systems</h4>
+                        <p class="text-xs text-gray">2 item(s)</p>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray"></i>
+                </a>
+            </div>
+        </main>
+
+        <div class="fixed-action-container">
+            <button class="btn-action">
+                Add Item
+            </button>
+        </div>
+
+        <nav class="bottom-nav">
+            <a href="index.html" class="nav-item">
+                <i class="fas fa-home"></i>
+                <span>Maintain</span>
+            </a>
+            <a href="catalog.html" class="nav-item">
+                <i class="fas fa-th-large"></i>
+                <span>Catalog</span>
+            </a>
+            <a href="contacts.html" class="nav-item">
+                <i class="fas fa-address-book"></i>
+                <span>Contacts</span>
+            </a>
+            <a href="support.html" class="nav-item">
+                <i class="fas fa-headset"></i>
+                <span>Support</span>
+            </a>
+        </nav>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

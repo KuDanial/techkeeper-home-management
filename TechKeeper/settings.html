@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - TechKeeper</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <button class="icon-btn" onclick="history.back()"><i class="fas fa-chevron-left"></i></button>
+            <h1>Settings</h1>
+            <div style="width: 40px;"></div>
+        </header>
+
+        <main class="content-area">
+            <h3 class="form-section-title">App Preferences</h3>
+            <div class="category-list" style="border-radius: 12px; overflow: hidden; margin-bottom: 1.5rem;">
+                <div class="category-item">
+                    <div class="category-icon"><i class="fas fa-moon"></i></div>
+                    <div class="category-text"><h4 class="text-sm">Dark Mode</h4></div>
+                    <input type="checkbox" style="width: 40px; height: 20px;">
+                </div>
+                <div class="category-item">
+                    <div class="category-icon"><i class="fas fa-globe"></i></div>
+                    <div class="category-text"><h4 class="text-sm">Language</h4></div>
+                    <span class="text-xs text-gray">English</span>
+                </div>
+                <div class="category-item">
+                    <div class="category-icon"><i class="fas fa-ruler"></i></div>
+                    <div class="category-text"><h4 class="text-sm">Units</h4></div>
+                    <span class="text-xs text-gray">Imperial</span>
+                </div>
+            </div>
+
+            <h3 class="form-section-title">Legal</h3>
+            <div class="category-list" style="border-radius: 12px; overflow: hidden;">
+                <a href="terms.html" class="category-item">
+                    <div class="category-text"><h4 class="text-sm">Terms of Service</h4></div>
+                    <i class="fas fa-external-link-alt text-gray"></i>
+                </a>
+                <a href="privacy.html" class="category-item">
+                    <div class="category-text"><h4 class="text-sm">Privacy Policy</h4></div>
+                    <i class="fas fa-external-link-alt text-gray"></i>
+                </a>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
