@@ -10,6 +10,7 @@
         .timeline {
             position: relative;
             padding: 1rem 0;
+            padding-bottom: 2rem;
         }
 
         .timeline::before {
@@ -54,6 +55,7 @@
             border-radius: 12px;
             border: 1px solid var(--border-color);
             cursor: pointer;
+            transition: all 0.2s;
         }
 
         .timeline-content:active {
@@ -81,6 +83,101 @@
             justify-content: space-between;
             align-items: center;
         }
+
+        /* Circular Button Design for Arrows and X */
+        .btn-circle {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1px solid var(--border-color);
+            background: white;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            outline: none;
+        }
+
+        .btn-circle:hover {
+            background: var(--bg-light);
+            border-color: var(--primary-accent);
+            color: var(--primary-accent);
+        }
+
+        /* Floating Action Button - Positioned sticky to avoid bottom-nav overlap */
+        .fab-container {
+            position: sticky;
+            bottom: 80px;
+            display: flex;
+            justify-content: flex-end;
+            padding: 0 10px;
+            pointer-events: none;
+            z-index: 100;
+            margin-top: -80px; /* Pull it up into the content area */
+        }
+
+        .fab {
+            width: 56px;
+            height: 56px;
+            background: var(--primary-accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 201, 167, 0.4);
+            border: none;
+            cursor: pointer;
+            pointer-events: auto;
+            transition: transform 0.2s;
+        }
+
+        .fab:active {
+            transform: scale(0.9);
+        }
+
+        /* Modal Styling */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            width: 100%;
+            max-width: 400px;
+            border-radius: 16px;
+            padding: 1.5rem;
+            animation: modalSlideUp 0.3s ease;
+        }
+
+        @keyframes modalSlideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
     </style>
 </head>
 <body>
@@ -94,8 +191,8 @@
         <div class="calendar-header">
             <h2 style="font-size: 1rem;">May 2026</h2>
             <div style="display: flex; gap: 10px;">
-                <button class="icon-btn" style="color: var(--text-dark);"><i class="fas fa-chevron-left"></i></button>
-                <button class="icon-btn" style="color: var(--text-dark);"><i class="fas fa-chevron-right"></i></button>
+                <button class="btn-circle"><i class="fas fa-chevron-left"></i></button>
+                <button class="btn-circle"><i class="fas fa-chevron-right"></i></button>
             </div>
         </div>
 
@@ -107,8 +204,8 @@
                     <div class="timeline-date">Today • May 6</div>
                     <div class="timeline-content" onclick="location.href='educate.html'">
                         <span class="event-type type-maintenance">Maintenance</span>
-                        <h4 class="text-sm">Change HVAC Filter</h4>
-                        <p class="text-xs text-gray" style="margin-top: 4px;">Main Unit • Recommended every 3 months</p>
+                        <h4 class="text-sm">Clean Dishwasher Cylindrical Filter</h4>
+                        <p class="text-xs text-gray" style="margin-top: 4px;">Kitchen • Ensure sparkling dishes</p>
                     </div>
                 </div>
 
@@ -119,7 +216,7 @@
                     <div class="timeline-content">
                         <span class="event-type type-task">Task</span>
                         <h4 class="text-sm">Pay Electric Bill</h4>
-                        <p class="text-xs text-gray" style="margin-top: 4px;">Due by 5:00 PM • $142.50</p>
+                        <p class="text-xs text-gray" style="margin-top: 4px;">Due by 5:00 PM • RM 142.50</p>
                     </div>
                 </div>
 
@@ -145,7 +242,48 @@
                     </div>
                 </div>
             </div>
+
+            <!-- FAB Sticky Position -->
+            <div class="fab-container">
+                <button class="fab" onclick="document.getElementById('taskModal').classList.add('active')">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </div>
         </main>
+
+        <div class="modal" id="taskModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 style="font-size: 1.1rem;">Add New Task</h3>
+                    <button class="btn-circle" onclick="document.getElementById('taskModal').classList.remove('active')">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="form-group">
+                    <label>Task Name</label>
+                    <input type="text" placeholder="e.g., Pay Water Bill">
+                </div>
+                <div class="form-group">
+                    <label>Date</label>
+                    <input type="date">
+                </div>
+                <div class="form-group">
+                    <label>Category</label>
+                    <select style="width: 100%; padding: 0.85rem; border: 1px solid var(--border-color); border-radius: 8px; background: white;">
+                        <option value="task">General Task</option>
+                        <option value="maintenance">Maintenance</option>
+                        <option value="warranty">Warranty</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Notes (Optional)</label>
+                    <input type="text" placeholder="Add some details...">
+                </div>
+                <button class="btn-action" style="margin-top: 1rem;" onclick="alert('Task added successfully!'); document.getElementById('taskModal').classList.remove('active')">
+                    Save Task
+                </button>
+            </div>
+        </div>
 
         <nav class="bottom-nav">
             <a href="index.html" class="nav-item">

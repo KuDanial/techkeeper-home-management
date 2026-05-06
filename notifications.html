@@ -6,42 +6,157 @@
     <title>Notifications - TechKeeper</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .setting-group {
+            background: white;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .setting-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .setting-item:last-child {
+            border-bottom: none;
+        }
+
+        .setting-info {
+            flex: 1;
+            padding-right: 1rem;
+        }
+
+        /* Toggle Switch */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 46px;
+            height: 24px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 24px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: var(--primary-accent);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(22px);
+        }
+    </style>
 </head>
 <body>
     <div class="app-container">
         <header>
             <button class="icon-btn" onclick="history.back()"><i class="fas fa-chevron-left"></i></button>
-            <h1>Notifications</h1>
+            <h1>Notification Settings</h1>
             <div style="width: 40px;"></div>
         </header>
 
         <main class="content-area">
-            <h3 class="form-section-title">Maintenance Alerts</h3>
-            <div class="category-list" style="border-radius: 12px; overflow: hidden; margin-bottom: 1.5rem;">
-                <div class="category-item">
-                    <div class="category-text">
-                        <h4 class="text-sm">Filter Replacements</h4>
-                        <p class="text-xs text-gray">Reminders for HVAC and Fridge filters</p>
+            <h3 class="form-section-title">Maintenance & Care</h3>
+            <div class="setting-group">
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <h4 class="text-sm">Filter Reminders</h4>
+                        <p class="text-xs text-gray">Alerts for dishwasher and HVAC filters</p>
                     </div>
-                    <input type="checkbox" checked style="width: 40px; height: 20px;">
+                    <label class="switch">
+                        <input type="checkbox" checked>
+                        <span class="slider"></span>
+                    </label>
                 </div>
-                <div class="category-item">
-                    <div class="category-text">
-                        <h4 class="text-sm">Safety Inspections</h4>
-                        <p class="text-xs text-gray">Smoke and CO detector checks</p>
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <h4 class="text-sm">Appliance Servicing</h4>
+                        <p class="text-xs text-gray">Recommended check-ups for major units</p>
                     </div>
-                    <input type="checkbox" checked style="width: 40px; height: 20px;">
+                    <label class="switch">
+                        <input type="checkbox" checked>
+                        <span class="slider"></span>
+                    </label>
                 </div>
             </div>
 
-            <h3 class="form-section-title">App Updates</h3>
-            <div class="category-list" style="border-radius: 12px; overflow: hidden;">
-                <div class="category-item">
-                    <div class="category-text">
-                        <h4 class="text-sm">New Features</h4>
-                        <p class="text-xs text-gray">Stay updated with latest tools</p>
+            <h3 class="form-section-title">Warranties & Tasks</h3>
+            <div class="setting-group">
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <h4 class="text-sm">Warranty Expiry</h4>
+                        <p class="text-xs text-gray">Get notified 30 days before expiration</p>
                     </div>
-                    <input type="checkbox" style="width: 40px; height: 20px;">
+                    <label class="switch">
+                        <input type="checkbox" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <h4 class="text-sm">Billing Reminders</h4>
+                        <p class="text-xs text-gray">Utility and internet renewal alerts</p>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+
+            <h3 class="form-section-title">Delivery Method</h3>
+            <div class="setting-group">
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <h4 class="text-sm">Push Notifications</h4>
+                        <p class="text-xs text-gray">Instant alerts on your phone</p>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <h4 class="text-sm">Email Digest</h4>
+                        <p class="text-xs text-gray">Weekly summary of upcoming tasks</p>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider"></span>
+                    </label>
                 </div>
             </div>
         </main>
