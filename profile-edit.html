@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile - TechKeeper</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <button class="icon-btn" onclick="history.back()"><i class="fas fa-chevron-left"></i></button>
+            <h1>Edit Profile</h1>
+            <div style="width: 40px;"></div>
+        </header>
+
+        <main class="content-area">
+            <div style="display: flex; flex-direction: column; align-items: center; padding: 1.5rem 0;">
+                <div style="position: relative;">
+                    <div style="width: 90px; height: 90px; background: var(--primary-accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.2rem; font-weight: 700;">H</div>
+                    <div style="position: absolute; bottom: 0; right: 0; background: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid var(--border-color);">
+                        <i class="fas fa-camera" style="font-size: 0.8rem; color: var(--text-gray);"></i>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="form-section-title">Personal Info</h3>
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" value="Hannah Keeper">
+            </div>
+            <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" value="hannah.keeper@example.com">
+            </div>
+            <div class="form-group">
+                <label>Phone Number</label>
+                <input type="tel" value="(555) 123-4567">
+            </div>
+
+            <h3 class="form-section-title">Home Address</h3>
+            <div class="form-group">
+                <label>Street Address</label>
+                <input type="text" value="123 Garden Lane">
+            </div>
+            <div class="form-group">
+                <label>City</label>
+                <input type="text" value="Springfield">
+            </div>
+        </main>
+
+        <div class="fixed-action-container">
+            <button class="btn-action" onclick="alert('Profile updated!'); history.back();">
+                Save Changes
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

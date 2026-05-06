@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documents - TechKeeper</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <button class="icon-btn" onclick="history.back()"><i class="fas fa-chevron-left"></i></button>
+            <h1>Documents</h1>
+            <div style="width: 40px;"></div>
+        </header>
+
+        <main class="content-area">
+            <h3 class="form-section-title">Manuals & Warranties</h3>
+            <div class="card" style="padding: 1rem;">
+                <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;">
+                    <i class="far fa-file-pdf" style="font-size: 1.5rem; color: #e74c3c;"></i>
+                    <div style="flex: 1;">
+                        <p class="text-sm">Samsung Fridge User Manual</p>
+                        <p class="text-xs text-gray">PDF • 2.4 MB</p>
+                    </div>
+                    <i class="fas fa-download text-gray"></i>
+                </div>
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <i class="far fa-file-pdf" style="font-size: 1.5rem; color: #e74c3c;"></i>
+                    <div style="flex: 1;">
+                        <p class="text-sm">Samsung Fridge Warranty</p>
+                        <p class="text-xs text-gray">PDF • 1.1 MB</p>
+                    </div>
+                    <i class="fas fa-download text-gray"></i>
+                </div>
+            </div>
+
+            <h3 class="form-section-title">Home Insurance</h3>
+            <div class="card" style="padding: 1rem;">
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <i class="far fa-file-alt" style="font-size: 1.5rem; color: var(--primary-accent);"></i>
+                    <div style="flex: 1;">
+                        <p class="text-sm">Policy_2026_Active.pdf</p>
+                        <p class="text-xs text-gray">Updated: April 2026</p>
+                    </div>
+                    <i class="fas fa-download text-gray"></i>
+                </div>
+            </div>
+        </main>
+
+        <div class="fixed-action-container">
+            <button class="btn-action">
+                <i class="fas fa-upload"></i> Upload New
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

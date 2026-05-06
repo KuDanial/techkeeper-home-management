@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Item - TechKeeper</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <button class="icon-btn" onclick="history.back()"><i class="fas fa-chevron-left"></i></button>
+            <h1>Edit Item</h1>
+            <div style="width: 40px;"></div>
+        </header>
+
+        <main class="content-area">
+            <div class="photo-upload-placeholder" style="position: relative; overflow: hidden;">
+                <img src="samsungfridge.png" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.5;">
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
+                    <i class="fas fa-camera" style="font-size: 1.5rem; margin-bottom: 5px;"></i>
+                    <p class="text-xs">Change Photo</p>
+                </div>
+            </div>
+
+            <h3 class="form-section-title">Item Details</h3>
+            
+            <div class="form-group">
+                <label>Item Name</label>
+                <input type="text" value="Samsung Refrigerator">
+            </div>
+
+            <div class="form-group">
+                <label>Category</label>
+                <select style="padding: 0.85rem; border: 1px solid var(--border-color); border-radius: 8px; width: 100%; background: white;">
+                    <option selected>Appliances</option>
+                    <option>Door, Window & Garage</option>
+                    <option>Exterior</option>
+                    <option>Furniture</option>
+                    <option>Heating & Cooling</option>
+                    <option>Home Cosmetics</option>
+                    <option>Plumbing</option>
+                    <option>Electrical</option>
+                    <option>Garden & Landscaping</option>
+                    <option>Security Systems</option>
+                </select>
+            </div>
+
+            <h3 class="form-section-title">Product Info</h3>
+
+            <div class="form-group">
+                <label>Brand</label>
+                <input type="text" value="Samsung">
+            </div>
+
+            <div class="form-group">
+                <label>Model Number</label>
+                <input type="text" value="RF28R7351SR">
+            </div>
+
+            <div class="form-group">
+                <label>Purchase Date</label>
+                <input type="date" value="2025-01-12">
+            </div>
+        </main>
+
+        <div class="fixed-action-container">
+            <button class="btn-action" onclick="alert('Item details updated!'); history.back();">
+                Update Item
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

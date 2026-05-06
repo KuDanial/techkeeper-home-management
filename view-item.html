@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Item - TechKeeper</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <button class="icon-btn" onclick="history.back()"><i class="fas fa-chevron-left"></i></button>
+            <h1>Item Details</h1>
+            <button class="icon-btn" onclick="location.href='edit-item.html'"><i class="fas fa-edit"></i></button>
+        </header>
+
+        <main class="content-area">
+            <div style="display: flex; flex-direction: column; align-items: center; padding: 1.5rem 0;">
+                <img src="samsungfridge.png" style="width: 120px; height: 120px; border-radius: 12px; object-fit: cover; margin-bottom: 1rem;">
+                <h2>Samsung Refrigerator</h2>
+                <p class="text-gray text-sm">Category: Appliances</p>
+            </div>
+
+            <h3 class="form-section-title">Product Information</h3>
+            <div class="card" style="padding: 1rem;">
+                <div style="margin-bottom: 1rem;">
+                    <p class="text-xs text-gray">Brand</p>
+                    <p class="text-sm">Samsung</p>
+                </div>
+                <div style="margin-bottom: 1rem;">
+                    <p class="text-xs text-gray">Model Number</p>
+                    <p class="text-sm">RF28R7351SR</p>
+                </div>
+                <div>
+                    <p class="text-xs text-gray">Purchase Date</p>
+                    <p class="text-sm">Jan 12, 2025</p>
+                </div>
+            </div>
+
+            <h3 class="form-section-title">Resources</h3>
+            <div class="category-list" style="border-radius: 12px; overflow: hidden;">
+                <a href="warranty-details.html" class="category-item">
+                    <div class="category-icon" style="color: var(--primary-accent);"><i class="fas fa-shield-alt"></i></div>
+                    <div class="category-text"><h4 class="text-sm">Active Warranty</h4></div>
+                    <i class="fas fa-chevron-right text-gray"></i>
+                </a>
+                <a href="documents.html" class="category-item">
+                    <div class="category-icon" style="color: #e74c3c;"><i class="fas fa-file-pdf"></i></div>
+                    <div class="category-text"><h4 class="text-sm">User Manual</h4></div>
+                    <i class="fas fa-chevron-right text-gray"></i>
+                </a>
+                <a href="educate.html" class="category-item">
+                    <div class="category-icon" style="color: #f1c40f;"><i class="fas fa-tools"></i></div>
+                    <div class="category-text"><h4 class="text-sm">Maintenance Guide</h4></div>
+                    <i class="fas fa-chevron-right text-gray"></i>
+                </a>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

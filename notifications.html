@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications - TechKeeper</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <button class="icon-btn" onclick="history.back()"><i class="fas fa-chevron-left"></i></button>
+            <h1>Notifications</h1>
+            <div style="width: 40px;"></div>
+        </header>
+
+        <main class="content-area">
+            <h3 class="form-section-title">Maintenance Alerts</h3>
+            <div class="category-list" style="border-radius: 12px; overflow: hidden; margin-bottom: 1.5rem;">
+                <div class="category-item">
+                    <div class="category-text">
+                        <h4 class="text-sm">Filter Replacements</h4>
+                        <p class="text-xs text-gray">Reminders for HVAC and Fridge filters</p>
+                    </div>
+                    <input type="checkbox" checked style="width: 40px; height: 20px;">
+                </div>
+                <div class="category-item">
+                    <div class="category-text">
+                        <h4 class="text-sm">Safety Inspections</h4>
+                        <p class="text-xs text-gray">Smoke and CO detector checks</p>
+                    </div>
+                    <input type="checkbox" checked style="width: 40px; height: 20px;">
+                </div>
+            </div>
+
+            <h3 class="form-section-title">App Updates</h3>
+            <div class="category-list" style="border-radius: 12px; overflow: hidden;">
+                <div class="category-item">
+                    <div class="category-text">
+                        <h4 class="text-sm">New Features</h4>
+                        <p class="text-xs text-gray">Stay updated with latest tools</p>
+                    </div>
+                    <input type="checkbox" style="width: 40px; height: 20px;">
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

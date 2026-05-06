@@ -1,0 +1,584 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary-dark: #2C3545;
+    --primary-accent: #00C9A7;
+    --bg-white: #FFFFFF;
+    --bg-light: #F7F8FC;
+    --text-dark: #2C3545;
+    --text-gray: #7D8491;
+    --border-color: #E0E4EB;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    --nav-height: 60px;
+    --bottom-nav-height: 65px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #e5e7eb; /* Background color for desktop outside the app container */
+    color: var(--text-dark);
+    line-height: 1.5;
+    display: flex;
+    justify-content: center;
+}
+
+/* App Container (Mobile app look on desktop) */
+.app-container {
+    width: 100%;
+    max-width: 480px;
+    background-color: var(--bg-light);
+    min-height: 100vh;
+    box-shadow: var(--shadow);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Typography Utility */
+h1, h2, h3, h4 {
+    font-weight: 700;
+}
+
+.text-sm { font-size: 0.875rem; }
+.text-xs { font-size: 0.75rem; }
+.text-gray { color: var(--text-gray); }
+.text-accent { color: var(--primary-accent); }
+
+/* Header Styling */
+header {
+    background-color: var(--primary-dark);
+    color: white;
+    height: var(--nav-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header h1 {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+header .icon-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+/* Progress Bar */
+.progress-container {
+    padding: 0.75rem 1rem;
+    background: white;
+}
+
+.progress-bar-bg {
+    background-color: #EEE;
+    height: 8px;
+    border-radius: 4px;
+    width: 100%;
+    position: relative;
+}
+
+.progress-bar-fill {
+    background-color: var(--primary-accent);
+    height: 100%;
+    border-radius: 4px;
+}
+
+.progress-text {
+    text-align: right;
+    font-weight: 700;
+    font-size: 0.8rem;
+    margin-top: 4px;
+}
+
+/* Bottom Navigation */
+.bottom-nav {
+    background-color: white;
+    height: var(--bottom-nav-height);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-top: 1px solid var(--border-color);
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text-gray);
+    font-size: 0.7rem;
+    gap: 4px;
+}
+
+.nav-item.active {
+    color: var(--primary-accent);
+}
+
+.nav-item i {
+    font-size: 1.2rem;
+}
+
+/* Buttons */
+.btn {
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: var(--primary-accent);
+    color: white;
+}
+
+/* Cards & Accordions */
+.content-area {
+    padding: 1rem;
+    flex: 1;
+}
+
+.card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.accordion-header {
+    background: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.accordion-content {
+    padding: 1rem;
+    display: none;
+}
+
+.accordion-content.active {
+    display: block;
+}
+
+.check-icon {
+    color: var(--primary-accent);
+    background: white;
+    border-radius: 50%;
+    font-size: 1.2rem;
+}
+
+/* Specific Items */
+.item-card {
+    border: 1px solid var(--primary-accent);
+    border-radius: 10px;
+    padding: 0.75rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    position: relative;
+}
+
+.item-thumb {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-right: 1rem;
+}
+
+.item-info {
+    flex: 1;
+}
+
+.item-check {
+    color: var(--primary-accent);
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+/* Chat Layout */
+.chat-banner {
+    background-color: var(--primary-accent);
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-history {
+    flex: 1;
+    padding: 1rem;
+    overflow-y: auto;
+    background: white;
+}
+
+.chat-bubble {
+    max-width: 80%;
+    padding: 0.75rem 1rem;
+    border-radius: 15px;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.bubble-user {
+    background-color: var(--primary-accent);
+    color: white;
+    margin-left: auto;
+    border-bottom-right-radius: 4px;
+}
+
+.bubble-agent {
+    background-color: #EEE;
+    color: var(--text-dark);
+    margin-right: auto;
+    border-bottom-left-radius: 4px;
+}
+
+.chat-meta {
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--text-gray);
+    margin: 1rem 0;
+}
+
+/* Catalog Styling */
+.search-container {
+    padding: 1rem;
+    background: white;
+}
+
+.search-bar {
+    background: var(--bg-light);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.search-bar input {
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 100%;
+}
+
+.category-list {
+    background: white;
+}
+
+.category-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    text-decoration: none;
+    color: inherit;
+}
+
+.category-icon {
+    width: 40px;
+    font-size: 1.5rem;
+    color: var(--text-dark);
+}
+
+.category-text {
+    flex: 1;
+    margin-left: 0.5rem;
+}
+
+/* Educate Styling */
+.hero-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.hero-overlay {
+    position: relative;
+    padding: 1rem;
+    background: rgba(0,0,0,0.5);
+    margin-top: -200px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: white;
+}
+
+.badge {
+    background: var(--primary-accent);
+    color: white;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    width: fit-content;
+    margin-bottom: 0.5rem;
+}
+
+.info-box {
+    background: var(--primary-dark);
+    color: white;
+    padding: 1.25rem;
+    font-size: 0.9rem;
+}
+
+.step-card {
+    margin-top: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.step-header {
+    background: var(--primary-dark);
+    color: white;
+    padding: 1rem;
+    font-weight: 600;
+}
+
+.step-body {
+    background: white;
+    padding: 1rem;
+}
+
+/* Auth Styling */
+.auth-container {
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    flex: 1;
+}
+
+.auth-logo {
+    font-size: 2.5rem;
+    color: var(--primary-accent);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.form-group input {
+    padding: 0.85rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus {
+    border-color: var(--primary-accent);
+}
+
+.auth-switch {
+    text-align: center;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+}
+
+.auth-switch span {
+    color: var(--primary-accent);
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* Action Buttons (Fixed Bottom) */
+.fixed-action-container {
+    padding: 1rem;
+    background: white;
+    border-top: 1px solid var(--border-color);
+    position: sticky;
+    bottom: var(--bottom-nav-height);
+    width: 100%;
+    z-index: 50;
+}
+
+.btn-action {
+    background-color: var(--primary-accent);
+    color: white;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Contact List Styling */
+.contact-avatar {
+    width: 45px;
+    height: 45px;
+    background: var(--primary-dark);
+    color: white;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+/* Tabs for Tasks */
+.tab-container {
+    display: flex;
+    background: white;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.tab {
+    flex: 1;
+    padding: 1rem;
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-gray);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+}
+
+.tab.active {
+    color: var(--primary-dark);
+    border-bottom-color: var(--primary-accent);
+}
+
+/* Side Drawer Styling */
+.drawer-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.drawer {
+    position: fixed;
+    top: 0;
+    left: -280px;
+    width: 280px;
+    height: 100%;
+    background: var(--primary-dark);
+    z-index: 1001;
+    transition: left 0.3s;
+    padding: 2rem 1rem;
+    color: white;
+}
+
+.drawer.open {
+    left: 0;
+}
+
+.drawer-overlay.open {
+    display: block;
+    opacity: 1;
+}
+
+.drawer-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.drawer-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.drawer-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 1rem;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background 0.2s;
+}
+
+.drawer-item:hover {
+    background: rgba(255,255,255,0.05);
+}
+
+.drawer-item i {
+    width: 20px;
+    font-size: 1.1rem;
+}
+
+/* Form Specifics */
+.photo-upload-placeholder {
+    width: 100%;
+    height: 150px;
+    background: #EEE;
+    border: 2px dashed var(--border-color);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-gray);
+    cursor: pointer;
+    margin-bottom: 1.5rem;
+}
+
+.form-section-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-gray);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 1.5rem 0 1rem 0;
+}
