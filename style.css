@@ -381,7 +381,7 @@ header .icon-btn {
     font-size: 2.5rem;
     color: var(--primary-accent);
     text-align: center;
-    margin-bottom: 1rem;
+    margin-bottom: 0;
 }
 
 .form-group {
@@ -402,6 +402,7 @@ header .icon-btn {
     border: 1px solid var(--border-color);
     border-radius: 8px;
     font-size: 1rem;
+    width: 100%;
     outline: none;
     transition: border-color 0.2s;
 }

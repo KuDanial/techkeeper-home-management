@@ -18,7 +18,7 @@
         <div class="search-container">
             <div class="search-bar">
                 <i class="fas fa-search text-gray"></i>
-                <input type="text" placeholder="Search ...">
+                <input type="text" placeholder="Search ..." onkeyup="filterCategories(this.value)">
             </div>
         </div>
 
@@ -37,7 +37,7 @@
                 </a>
 
                 <!-- Category 2: Door, Window & Garage -->
-                <a href="#" class="category-item">
+                <a href="inventory-list.html" class="category-item">
                     <div class="category-icon">
                         <i class="fas fa-th-large"></i>
                     </div>
@@ -49,7 +49,7 @@
                 </a>
 
                 <!-- Category 3: Exterior -->
-                <a href="#" class="category-item">
+                <a href="inventory-list.html" class="category-item">
                     <div class="category-icon">
                         <i class="fas fa-home"></i>
                     </div>
@@ -61,7 +61,7 @@
                 </a>
 
                 <!-- Category 4: Furniture -->
-                <a href="#" class="category-item">
+                <a href="inventory-list.html" class="category-item">
                     <div class="category-icon">
                         <i class="fas fa-chair"></i>
                     </div>
@@ -73,7 +73,7 @@
                 </a>
 
                 <!-- Category 5: Heating & Cooling -->
-                <a href="#" class="category-item">
+                <a href="inventory-list.html" class="category-item">
                     <div class="category-icon">
                         <i class="fas fa-snowflake"></i>
                     </div>
@@ -85,7 +85,7 @@
                 </a>
 
                 <!-- Category 6: Home Cosmetics -->
-                <a href="#" class="category-item">
+                <a href="inventory-list.html" class="category-item">
                     <div class="category-icon">
                         <i class="fas fa-paint-roller"></i>
                     </div>
@@ -97,7 +97,7 @@
                 </a>
 
                 <!-- Category 7: Plumbing -->
-                <a href="#" class="category-item">
+                <a href="inventory-list.html" class="category-item">
                     <div class="category-icon">
                         <i class="fas fa-tint"></i>
                     </div>
@@ -109,7 +109,7 @@
                 </a>
 
                 <!-- Category 8: Electrical -->
-                <a href="#" class="category-item">
+                <a href="inventory-list.html" class="category-item">
                     <div class="category-icon">
                         <i class="fas fa-bolt"></i>
                     </div>
@@ -121,7 +121,7 @@
                 </a>
 
                 <!-- Category 9: Garden & Landscaping -->
-                <a href="#" class="category-item">
+                <a href="inventory-list.html" class="category-item">
                     <div class="category-icon">
                         <i class="fas fa-leaf"></i>
                     </div>
@@ -133,7 +133,7 @@
                 </a>
 
                 <!-- Category 10: Security Systems -->
-                <a href="#" class="category-item">
+                <a href="inventory-list.html" class="category-item">
                     <div class="category-icon">
                         <i class="fas fa-shield-alt"></i>
                     </div>
@@ -173,5 +173,16 @@
     </div>
 
     <script src="script.js"></script>
+    <script>
+        function filterCategories(searchTerm) {
+            const items = document.querySelectorAll('.category-item');
+            const term = searchTerm.toLowerCase();
+            
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                item.style.display = text.includes(term) ? 'flex' : 'none';
+            });
+        }
+    </script>
 </body>
 </html>

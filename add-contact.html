@@ -52,12 +52,42 @@
         </main>
 
         <div class="fixed-action-container">
-            <button class="btn-action" onclick="alert('Contact added successfully!'); history.back();">
+            <button class="btn-action" onclick="validateAndSaveContact()">
                 Add Contact
             </button>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        function validateAndSaveContact() {
+            const businessName = document.querySelector('input[placeholder="e.g., Smith Plumbing"]').value.trim();
+            const serviceType = document.querySelector('input[placeholder="e.g., Plumbing"]').value.trim();
+            const phone = document.querySelector('input[placeholder="(555) 000-0000"]').value.trim();
+            const email = document.querySelector('input[placeholder="contact@example.com"]').value.trim();
+            
+            if (!businessName) {
+                alert('Please enter a business name');
+                return;
+            }
+            
+            if (!serviceType) {
+                alert('Please enter a service type');
+                return;
+            }
+            
+            if (!phone) {
+                alert('Please enter a phone number');
+                return;
+            }
+            
+            if (email && !email.includes('@')) {
+                alert('Please enter a valid email address');
+                return;
+            }
+            
+            alert('Contact added successfully!');
+            history.back();
+        }
+    </script>
 </body>
 </html>

@@ -63,12 +63,30 @@
         </main>
 
         <div class="fixed-action-container">
-            <button class="btn-action" onclick="alert('Item saved successfully!'); history.back();">
+            <button class="btn-action" onclick="validateAndSaveItem()">
                 Save Item
             </button>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        function validateAndSaveItem() {
+            const itemName = document.querySelector('input[placeholder="e.g., Refrigerator"]').value.trim();
+            const category = document.querySelector('select').value;
+            
+            if (!itemName) {
+                alert('Please enter an item name');
+                return;
+            }
+            
+            if (itemName.length < 2) {
+                alert('Item name must be at least 2 characters');
+                return;
+            }
+            
+            alert('Item saved successfully!');
+            history.back();
+        }
+    </script>
 </body>
 </html>

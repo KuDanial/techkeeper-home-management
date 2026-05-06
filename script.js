@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Inject Side Drawer into the page if it's an app page
     const container = document.querySelector('.app-container');
-    if (container && !window.location.pathname.includes('auth.html')) {
+    if (container && !window.location.pathname.includes('auth.html') && !window.location.pathname.includes('signup.html')) {
         const drawerHTML = `
             <div class="drawer-overlay" id="drawerOverlay"></div>
             <div class="drawer" id="sideDrawer">
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <a href="contacts.html" class="drawer-item"><i class="fas fa-address-book"></i> <span>Contacts</span></a>
                     <a href="documents.html" class="drawer-item"><i class="fas fa-file-alt"></i> <span>Documents</span></a>
                     <a href="settings.html" class="drawer-item"><i class="fas fa-cog"></i> <span>Settings</span></a>
-                    <a href="auth.html" class="drawer-item" style="margin-top: 2rem; color: #e74c3c;"><i class="fas fa-sign-out-alt"></i> <span>Logout</span></a>
+                    <a href="auth.html" class="drawer-item" style="margin-top: 2rem; color: #e74c3c; border-top: 1px solid var(--border-color); padding-top: 1rem;"><i class="fas fa-sign-out-alt"></i> <span>Logout</span></a>
                 </nav>
             </div>
         `;

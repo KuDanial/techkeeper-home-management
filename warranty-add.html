@@ -52,12 +52,50 @@
         </main>
 
         <div class="fixed-action-container">
-            <button class="btn-action" onclick="alert('Warranty added successfully!'); history.back();">
+            <button class="btn-action" onclick="validateAndSaveWarranty()">
                 Add Warranty
             </button>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        function validateAndSaveWarranty() {
+            const providerName = document.querySelector('input[placeholder="e.g., Geek Squad Protection"]').value.trim();
+            const policyNumber = document.querySelector('input[placeholder="e.g., GSP-123456789"]').value.trim();
+            const startDate = document.querySelector('input[type="date"]').value;
+            const endDate = document.querySelectorAll('input[type="date"]')[1].value;
+            
+            if (!providerName) {
+                alert('Please enter a provider name');
+                return;
+            }
+            
+            if (!policyNumber) {
+                alert('Please enter a policy or serial number');
+                return;
+            }
+            
+            if (!startDate) {
+                alert('Please select a start date');
+                return;
+            }
+            
+            if (!endDate) {
+                alert('Please select an end date');
+                return;
+            }
+            
+            const start = new Date(startDate);
+            const end = new Date(endDate);
+            
+            if (end <= start) {
+                alert('End date must be after start date');
+                return;
+            }
+            
+            alert('Warranty added successfully!');
+            history.back();
+        }
+    </script>
 </body>
 </html>

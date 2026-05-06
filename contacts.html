@@ -18,7 +18,7 @@
         <div class="search-container">
             <div class="search-bar">
                 <i class="fas fa-search text-gray"></i>
-                <input type="text" placeholder="Search ...">
+                <input type="text" placeholder="Search ..." onkeyup="filterContacts(this.value)">
             </div>
         </div>
 
@@ -35,7 +35,7 @@
                 </a>
 
                 <!-- Contact 2 -->
-                <a href="#" class="category-item">
+                <a href="contact-details.html" class="category-item">
                     <div class="contact-avatar">C</div>
                     <div class="category-text">
                         <h4 class="text-sm">Castle Tile</h4>
@@ -45,7 +45,7 @@
                 </a>
 
                 <!-- Contact 3 -->
-                <a href="#" class="category-item">
+                <a href="contact-details.html" class="category-item">
                     <div class="contact-avatar">D</div>
                     <div class="category-text">
                         <h4 class="text-sm">Don Smith Construction</h4>
@@ -55,7 +55,7 @@
                 </a>
 
                 <!-- Contact 4 -->
-                <a href="#" class="category-item">
+                <a href="contact-details.html" class="category-item">
                     <div class="contact-avatar">E</div>
                     <div class="category-text">
                         <h4 class="text-sm">Electric Circuit</h4>
@@ -65,7 +65,7 @@
                 </a>
 
                 <!-- Contact 5 -->
-                <a href="#" class="category-item">
+                <a href="contact-details.html" class="category-item">
                     <div class="contact-avatar">F</div>
                     <div class="category-text">
                         <h4 class="text-sm">Falcon Heating</h4>
@@ -103,5 +103,16 @@
     </div>
 
     <script src="script.js"></script>
+    <script>
+        function filterContacts(searchTerm) {
+            const items = document.querySelectorAll('.category-item');
+            const term = searchTerm.toLowerCase();
+            
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                item.style.display = text.includes(term) ? 'flex' : 'none';
+            });
+        }
+    </script>
 </body>
 </html>

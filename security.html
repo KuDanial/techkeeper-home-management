@@ -18,7 +18,7 @@
         <main class="content-area">
             <h3 class="form-section-title">Login Security</h3>
             <div class="category-list" style="border-radius: 12px; overflow: hidden; margin-bottom: 1.5rem;">
-                <a href="#" class="category-item">
+                <a href="#" class="category-item" onclick="alert('Change Password feature coming soon!'); return false;">
                     <div class="category-text"><h4 class="text-sm">Change Password</h4></div>
                     <i class="fas fa-chevron-right text-gray"></i>
                 </a>
@@ -37,7 +37,7 @@
                     </div>
                     <input type="checkbox" checked style="width: 40px; height: 20px;">
                 </div>
-                <a href="#" class="category-item">
+                <a href="#" class="category-item" onclick="if(confirm('Are you sure you want to delete your account? This cannot be undone.')) { alert('Account deletion initiated. You will receive a confirmation email.'); } return false;">
                     <div class="category-text"><h4 class="text-sm" style="color: #e74c3c;">Delete Account</h4></div>
                 </a>
             </div>

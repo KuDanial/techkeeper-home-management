@@ -16,74 +16,48 @@
         </header>
 
         <main class="auth-container">
-            <div id="signin-form">
-                <div class="auth-logo">
-                    <i class="fas fa-home"></i>
-                </div>
-                <h2 style="text-align: center; margin-bottom: 2rem;">Welcome Back</h2>
-                
-                <div class="form-group">
-                    <label>Email Address</label>
-                    <input type="email" placeholder="name@example.com">
-                </div>
-
-                <div class="form-group">
-                    <label>Password</label>
-                    <input type="password" placeholder="••••••••">
-                </div>
-
-                <button class="btn-action" style="margin-top: 1rem;" onclick="location.href='index.html'">
-                    Sign In
-                </button>
-
-                <p class="auth-switch">
-                    Don't have an account? <span onclick="toggleAuth()">Sign Up</span>
-                </p>
+            <div class="auth-logo">
+                <img src="techkeeper_logo.png" alt="TechKeeper Logo" style="max-width: 100%; height: auto; width: 120px;">
+            </div>
+            
+            <h3 style="text-align: center; color: var(--text-dark); margin-bottom: 0.5rem; font-size: 1rem;">Log In</h3>
+            
+            <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" placeholder="name@example.com" id="emailInput">
             </div>
 
-            <div id="signup-form" style="display: none;">
-                <div class="auth-logo">
-                    <i class="fas fa-home"></i>
-                </div>
-                <h2 style="text-align: center; margin-bottom: 2rem;">Create Account</h2>
-                
-                <div class="form-group">
-                    <label>Full Name</label>
-                    <input type="text" placeholder="John Doe">
-                </div>
-
-                <div class="form-group">
-                    <label>Email Address</label>
-                    <input type="email" placeholder="name@example.com">
-                </div>
-
-                <div class="form-group">
-                    <label>Password</label>
-                    <input type="password" placeholder="••••••••">
-                </div>
-
-                <button class="btn-action" style="margin-top: 1rem;" onclick="location.href='index.html'">
-                    Create Account
-                </button>
-
-                <p class="auth-switch">
-                    Already have an account? <span onclick="toggleAuth()">Sign In</span>
-                </p>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" placeholder="••••••••" id="passwordInput">
             </div>
+
+            <button class="btn-action" style="margin-top: 1rem;" onclick="handleLogin()">
+                Sign In
+            </button>
+
+            <p class="auth-switch">
+                Don't have an account? <a href="signup.html" style="color: var(--primary-accent); text-decoration: none; font-weight: 600;">Sign Up</a>
+            </p>
         </main>
     </div>
 
     <script>
-        function toggleAuth() {
-            const signin = document.getElementById('signin-form');
-            const signup = document.getElementById('signup-form');
-            if (signin.style.display === 'none') {
-                signin.style.display = 'block';
-                signup.style.display = 'none';
-            } else {
-                signin.style.display = 'none';
-                signup.style.display = 'block';
+        function handleLogin() {
+            const email = document.getElementById('emailInput').value;
+            const password = document.getElementById('passwordInput').value;
+            
+            if (!email || !password) {
+                alert('Please fill in all fields');
+                return;
             }
+            
+            if (!email.includes('@')) {
+                alert('Please enter a valid email address');
+                return;
+            }
+            
+            location.href = 'index.html';
         }
     </script>
 </body>

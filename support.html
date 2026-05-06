@@ -3,70 +3,257 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Support - TechKeeper</title>
+    <title>Quick Fix FAQ - TechKeeper</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .faq-search-container {
+            padding: 1rem;
+            background: white;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: var(--nav-height);
+            z-index: 99;
+        }
+
+        .faq-search {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.2s;
+            background: var(--bg-light);
+        }
+
+        .faq-search:focus {
+            border-color: var(--primary-accent);
+            background: white;
+        }
+
+        .faq-category-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            padding: 1rem 1rem 0.5rem 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.75rem;
+            padding: 0.5rem 1rem 1rem 1rem;
+        }
+
+        .faq-card {
+            background: white;
+            border: 2px solid var(--primary-accent);
+            border-radius: 10px;
+            padding: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .faq-card:active {
+            transform: scale(0.98);
+            box-shadow: 0 2px 8px rgba(0, 201, 167, 0.2);
+        }
+
+        .faq-card-icon {
+            font-size: 1.5rem;
+            color: var(--primary-accent);
+            min-width: 30px;
+            text-align: center;
+        }
+
+        .faq-card-text {
+            flex: 1;
+        }
+
+        .faq-card-title {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--primary-dark);
+        }
+
+        .faq-card-desc {
+            font-size: 0.75rem;
+            color: var(--text-gray);
+            margin-top: 2px;
+        }
+
+        .faq-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: flex-end;
+        }
+
+        .faq-modal.active {
+            display: flex;
+        }
+
+        .faq-modal-content {
+            background: white;
+            width: 100%;
+            max-height: 85vh;
+            border-radius: 16px 16px 0 0;
+            overflow-y: auto;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        .faq-modal-header {
+            padding: 1.5rem 1rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .faq-modal-header-icon {
+            font-size: 2rem;
+            color: var(--primary-accent);
+        }
+
+        .faq-modal-header-title {
+            flex: 1;
+        }
+
+        .faq-modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-gray);
+            cursor: pointer;
+        }
+
+        .faq-modal-body {
+            padding: 1.5rem 1rem;
+        }
+
+        .faq-solution-title {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+        }
+
+        .faq-solution-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .faq-step {
+            display: flex;
+            gap: 12px;
+        }
+
+        .faq-step-number {
+            background: var(--primary-accent);
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .faq-step-content {
+            flex: 1;
+            padding-top: 2px;
+        }
+
+        .faq-step-title {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--primary-dark);
+            margin-bottom: 4px;
+        }
+
+        .faq-step-desc {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            line-height: 1.4;
+        }
+
+        .faq-tip {
+            background: #FFF3CD;
+            border-left: 4px solid #FFC107;
+            padding: 0.75rem 1rem;
+            border-radius: 4px;
+            margin-top: 1rem;
+        }
+
+        .faq-tip-title {
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: #856404;
+        }
+
+        .faq-tip-text {
+            font-size: 0.8rem;
+            color: #856404;
+            margin-top: 4px;
+        }
+
+        .faq-empty {
+            text-align: center;
+            padding: 2rem 1rem;
+            color: var(--text-gray);
+        }
+
+        .faq-empty-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+    </style>
 </head>
 <body>
     <div class="app-container">
         <header>
             <button class="icon-btn" onclick="history.back()"><i class="fas fa-chevron-left"></i></button>
-            <h1 style="color: var(--primary-accent); font-weight: 700;">Support</h1>
+            <h1 style="color: var(--primary-accent); font-weight: 700;">Quick Fix FAQ</h1>
             <button class="icon-btn" style="font-size: 0.9rem;" onclick="location.href='index.html'">Close</button>
         </header>
 
-        <div class="chat-banner">
-            <div style="display: flex; align-items: center; gap: 10px;">
-                <i class="fas fa-bars"></i>
-                <span style="font-weight: 600;">Chat with us</span>
-            </div>
-            <div style="display: flex; gap: 15px;">
-                <i class="fas fa-expand-alt"></i>
-                <i class="fas fa-minus"></i>
-            </div>
+        <div class="faq-search-container">
+            <input 
+                type="text" 
+                class="faq-search" 
+                id="faqSearch" 
+                placeholder="Search for your issue..."
+                onkeyup="filterFAQ()"
+            >
         </div>
 
-        <main class="content-area" style="background: white; padding: 0; display: flex; flex-direction: column;">
-            <!-- Agent Header -->
-            <div style="padding: 1rem; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between;">
-                <div style="display: flex; align-items: center; gap: 12px;">
-                    <div style="width: 45px; height: 45px; background: var(--primary-dark); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary-accent); font-weight: 700; font-size: 1.2rem;">E</div>
-                    <div>
-                        <h4 class="text-sm">Ella Warner</h4>
-                        <p class="text-xs text-gray">Customer Support</p>
-                    </div>
-                </div>
-                <div style="display: flex; gap: 15px; color: var(--text-gray);">
-                    <i class="far fa-thumbs-up"></i>
-                    <i class="far fa-thumbs-down"></i>
-                </div>
-            </div>
-
-            <!-- Chat History -->
-            <div class="chat-history">
-                <!-- User Message -->
-                <div class="chat-bubble bubble-user">
-                    My faucet is leaking, is there anything I can do?
-                </div>
-
-                <div class="chat-meta">Chat started</div>
-                <div class="chat-meta">Ella Warner joined the chat</div>
-
-                <!-- Agent Message -->
-                <div style="margin-bottom: 1rem;">
-                    <p class="text-xs text-gray" style="margin-left: 55px; margin-bottom: 4px;">Ella Warner</p>
-                    <div style="display: flex; align-items: flex-end; gap: 10px;">
-                        <div style="width: 35px; height: 35px; background: var(--primary-dark); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary-accent); font-weight: 700; font-size: 0.8rem; flex-shrink: 0;">E</div>
-                        <div class="chat-bubble bubble-agent">
-                            Hi Hannah! Thanks for being a HomeKeep user. I'd be happy to help you through this. Can you share more details - how long has this been going on, how much water is coming out, where is it coming from?
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div style="text-align: center; padding: 10px; color: var(--text-gray); font-size: 0.7rem;">
-                zendesk
-            </div>
+        <main class="content-area" style="padding: 0; background: var(--bg-light);">
+            <div id="faqContent"></div>
         </main>
 
         <nav class="bottom-nav">
@@ -82,13 +269,290 @@
                 <i class="fas fa-address-book"></i>
                 <span>Contacts</span>
             </a>
-            <a href="support.html" class="nav-item">
+            <a href="support.html" class="nav-item active">
                 <i class="fas fa-headset"></i>
                 <span>Support</span>
             </a>
         </nav>
     </div>
 
-    <script src="script.js"></script>
+    <!-- FAQ Modal -->
+    <div class="faq-modal" id="faqModal">
+        <div class="faq-modal-content">
+            <div class="faq-modal-header">
+                <div class="faq-modal-header-icon" id="modalIcon"></div>
+                <div class="faq-modal-header-title">
+                    <h2 id="modalTitle" style="font-size: 1.1rem; margin: 0;"></h2>
+                </div>
+                <button class="faq-modal-close" onclick="closeFAQModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="faq-modal-body" id="modalBody"></div>
+        </div>
+    </div>
+
+    <script>
+        const faqData = {
+            'network': [
+                {
+                    title: 'Wi-Fi is Down',
+                    icon: 'fas fa-wifi',
+                    desc: 'No internet connection',
+                    solutions: [
+                        { title: 'Check Router Power', desc: 'Ensure the router is plugged in and powered on. Look for indicator lights.' },
+                        { title: 'Restart Router', desc: 'Unplug the router for 30 seconds, then plug it back in. Wait 2-3 minutes for full restart.' },
+                        { title: 'Move Closer', desc: 'Move your device closer to the router to check signal strength.' },
+                        { title: 'Check Internet Connection', desc: 'Verify with your ISP if there are any outages in your area.' },
+                        { title: 'Reset Network Settings', desc: 'Forget the network on your device and reconnect with the password.' }
+                    ],
+                    tip: 'If problem persists after 5 minutes, contact your Internet Service Provider'
+                },
+                {
+                    title: 'Internet is Slow',
+                    icon: 'fas fa-tachometer-alt',
+                    desc: 'Poor connection speed',
+                    solutions: [
+                        { title: 'Restart Router', desc: 'Power off router for 30 seconds and restart it.' },
+                        { title: 'Check Connected Devices', desc: 'See how many devices are connected and using bandwidth.' },
+                        { title: 'Move Away from Interference', desc: 'Keep router away from microwaves, cordless phones, or other wireless devices.' },
+                        { title: 'Update Router Firmware', desc: 'Check manufacturer\'s website for latest firmware updates.' },
+                        { title: 'Run Speed Test', desc: 'Use a speed test tool to check actual download/upload speeds.' }
+                    ],
+                    tip: 'Close bandwidth-heavy applications on other devices to improve speed'
+                }
+            ],
+            'windows': [
+                {
+                    title: 'Windows Outdated',
+                    icon: 'fas fa-windows',
+                    desc: 'System needs updates',
+                    solutions: [
+                        { title: 'Open Settings', desc: 'Press Windows key + I to open Settings.' },
+                        { title: 'Go to Update & Security', desc: 'Click "Update & Security" in the Settings menu.' },
+                        { title: 'Check for Updates', desc: 'Click "Check for updates" button.' },
+                        { title: 'Download & Install', desc: 'Windows will download and install available updates.' },
+                        { title: 'Restart Computer', desc: 'Your computer will restart to apply the updates. Save your work first.' }
+                    ],
+                    tip: 'Keep automatic updates enabled to stay secure. Regular updates fix security issues and improve performance'
+                },
+                {
+                    title: 'Computer Running Slow',
+                    icon: 'fas fa-hourglass-end',
+                    desc: 'Performance issues',
+                    solutions: [
+                        { title: 'Check Storage Space', desc: 'Ensure your C: drive has at least 10% free space.' },
+                        { title: 'Close Unnecessary Programs', desc: 'Close apps you\'re not using, especially in background.' },
+                        { title: 'Check Task Manager', desc: 'Press Ctrl+Shift+Esc to see what\'s using CPU/RAM.' },
+                        { title: 'Disable Startup Programs', desc: 'Remove unnecessary programs from startup in Task Manager.' },
+                        { title: 'Run Disk Cleanup', desc: 'Search "Disk Cleanup" and remove temporary files.' }
+                    ],
+                    tip: 'Restart your computer regularly - it clears memory and helps performance'
+                },
+                {
+                    title: 'Blue Screen Error',
+                    icon: 'fas fa-exclamation-triangle',
+                    desc: 'Critical system error',
+                    solutions: [
+                        { title: 'Note the Error Code', desc: 'Take a photo or note the error code displayed.' },
+                        { title: 'Restart Computer', desc: 'Press Ctrl+Alt+Delete and select Restart.' },
+                        { title: 'Start Safe Mode', desc: 'Restart and press F8 to boot in Safe Mode.' },
+                        { title: 'Check Recent Changes', desc: 'Uninstall recently added hardware or software.' },
+                        { title: 'Check Drivers', desc: 'Update your graphics card and chipset drivers.' }
+                    ],
+                    tip: 'Keep a record of the error code - this helps when contacting support'
+                }
+            ],
+            'printer': [
+                {
+                    title: 'Printer Not Responding',
+                    icon: 'fas fa-print',
+                    desc: 'Printer offline or not found',
+                    solutions: [
+                        { title: 'Check Power & Cable', desc: 'Ensure printer is powered on and USB cable is connected.' },
+                        { title: 'Restart Printer', desc: 'Turn off printer for 30 seconds, then turn back on.' },
+                        { title: 'Remove & Re-add Printer', desc: 'Go to Settings > Devices > Printers and remove, then re-add.' },
+                        { title: 'Clear Print Queue', desc: 'Press Windows+R, type "services.msc", find Print Spooler, restart it.' },
+                        { title: 'Update Printer Driver', desc: 'Visit printer manufacturer website and download latest driver.' }
+                    ],
+                    tip: 'Check printer for any error codes or warning lights'
+                },
+                {
+                    title: 'Paper Jam',
+                    icon: 'fas fa-exclamation-circle',
+                    desc: 'Paper stuck inside printer',
+                    solutions: [
+                        { title: 'Turn Off Printer', desc: 'Power off printer immediately to prevent damage.' },
+                        { title: 'Open Access Panels', desc: 'Open all access panels to find where paper is stuck.' },
+                        { title: 'Remove Paper Carefully', desc: 'Gently pull the jammed paper in the direction of the paper path.' },
+                        { title: 'Check for Debris', desc: 'Look for torn paper pieces or debris inside.' },
+                        { title: 'Close & Restart', desc: 'Close all panels and power on printer again.' }
+                    ],
+                    tip: 'Use only recommended paper type and quality to prevent jams'
+                }
+            ],
+            'storage': [
+                {
+                    title: 'Storage Almost Full',
+                    icon: 'fas fa-hdd',
+                    desc: 'Hard drive running out of space',
+                    solutions: [
+                        { title: 'Check Disk Space', desc: 'Right-click C: drive, select Properties to see usage.' },
+                        { title: 'Delete Unnecessary Files', desc: 'Move old documents and files to external storage.' },
+                        { title: 'Run Disk Cleanup', desc: 'Search "Disk Cleanup", select C: drive, and delete temp files.' },
+                        { title: 'Uninstall Unused Programs', desc: 'Control Panel > Programs > Uninstall Programs. Remove unused apps.' },
+                        { title: 'Move Files to Cloud', desc: 'Use OneDrive or Google Drive to store files online.' }
+                    ],
+                    tip: 'Maintain at least 10% free space for optimal system performance'
+                }
+            ],
+            'display': [
+                {
+                    title: 'Monitor Not Detected',
+                    icon: 'fas fa-desktop',
+                    desc: 'No display or second monitor not showing',
+                    solutions: [
+                        { title: 'Check Cable Connection', desc: 'Ensure monitor cable is fully inserted into both monitor and computer.' },
+                        { title: 'Try Different Cable', desc: 'Test with another HDMI or DisplayPort cable if available.' },
+                        { title: 'Restart Computer', desc: 'Power down, wait 30 seconds, and restart.' },
+                        { title: 'Update Graphics Driver', desc: 'Right-click on Start > Device Manager > Display Adapters > Update driver.' },
+                        { title: 'Check Monitor Power', desc: 'Ensure monitor is powered on with indicator light visible.' }
+                    ],
+                    tip: 'For laptops with external monitors, try Windows+P to switch display modes'
+                }
+            ],
+            'audio': [
+                {
+                    title: 'No Sound or Audio Issues',
+                    icon: 'fas fa-volume-mute',
+                    desc: 'Can\'t hear audio from speakers',
+                    solutions: [
+                        { title: 'Check Volume', desc: 'Click speaker icon in taskbar to see volume level.' },
+                        { title: 'Check Mute Status', desc: 'Ensure speakers are not muted (look for mute icon).' },
+                        { title: 'Check Audio Cables', desc: 'Verify all audio cables are properly connected.' },
+                        { title: 'Restart Audio Service', desc: 'Right-click Start > Device Manager > Sound Devices. Restart audio device.' },
+                        { title: 'Update Audio Driver', desc: 'Download latest audio driver from your motherboard or laptop manufacturer.' }
+                    ],
+                    tip: 'Check if other devices produce sound to isolate the issue'
+                }
+            ]
+        };
+
+        function renderFAQ() {
+            const container = document.getElementById('faqContent');
+            let html = '';
+
+            const categories = [
+                { key: 'network', name: 'Network & Internet', icon: 'fas fa-wifi' },
+                { key: 'windows', name: 'Windows & System', icon: 'fas fa-cog' },
+                { key: 'printer', name: 'Printer & Peripherals', icon: 'fas fa-print' },
+                { key: 'storage', name: 'Storage & Space', icon: 'fas fa-hdd' },
+                { key: 'display', name: 'Display & Monitor', icon: 'fas fa-desktop' },
+                { key: 'audio', name: 'Audio & Sound', icon: 'fas fa-volume-up' }
+            ];
+
+            categories.forEach(category => {
+                html += `<div class="faq-category-title"><i class="${category.icon}"></i> ${category.name}</div>`;
+                html += '<div class="faq-grid">';
+
+                faqData[category.key].forEach((item, index) => {
+                    html += `
+                        <div class="faq-card" onclick="openFAQModal('${category.key}', ${index})">
+                            <div class="faq-card-icon"><i class="${item.icon}"></i></div>
+                            <div class="faq-card-text">
+                                <div class="faq-card-title">${item.title}</div>
+                                <div class="faq-card-desc">${item.desc}</div>
+                            </div>
+                        </div>
+                    `;
+                });
+
+                html += '</div>';
+            });
+
+            container.innerHTML = html;
+        }
+
+        function openFAQModal(category, index) {
+            const item = faqData[category][index];
+            const modal = document.getElementById('faqModal');
+            
+            document.getElementById('modalIcon').innerHTML = `<i class="${item.icon}"></i>`;
+            document.getElementById('modalTitle').textContent = item.title;
+
+            let body = `<div class="faq-solution-title">Quick Steps to Fix</div>`;
+            body += '<div class="faq-solution-steps">';
+
+            item.solutions.forEach((solution, step) => {
+                body += `
+                    <div class="faq-step">
+                        <div class="faq-step-number">${step + 1}</div>
+                        <div class="faq-step-content">
+                            <div class="faq-step-title">${solution.title}</div>
+                            <div class="faq-step-desc">${solution.desc}</div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            body += '</div>';
+
+            if (item.tip) {
+                body += `
+                    <div class="faq-tip">
+                        <div class="faq-tip-title">💡 Pro Tip</div>
+                        <div class="faq-tip-text">${item.tip}</div>
+                    </div>
+                `;
+            }
+
+            document.getElementById('modalBody').innerHTML = body;
+            modal.classList.add('active');
+        }
+
+        function closeFAQModal() {
+            document.getElementById('faqModal').classList.remove('active');
+        }
+
+        function filterFAQ() {
+            const searchTerm = document.getElementById('faqSearch').value.toLowerCase();
+            const cards = document.querySelectorAll('.faq-card');
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                const title = card.querySelector('.faq-card-title').textContent.toLowerCase();
+                const desc = card.querySelector('.faq-card-desc').textContent.toLowerCase();
+
+                if (title.includes(searchTerm) || desc.includes(searchTerm)) {
+                    card.style.display = 'flex';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            if (visibleCount === 0 && searchTerm.length > 0) {
+                document.getElementById('faqContent').innerHTML = `
+                    <div style="padding-top: 2rem;">
+                        <div class="faq-empty">
+                            <div class="faq-empty-icon"><i class="fas fa-search"></i></div>
+                            <p>No solutions found for "${searchTerm}"</p>
+                            <p style="font-size: 0.8rem; margin-top: 0.5rem;">Try searching for common issues like "Wi-Fi", "Printer", or "Slow"</p>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('faqModal').addEventListener('click', (e) => {
+            if (e.target.id === 'faqModal') {
+                closeFAQModal();
+            }
+        });
+
+        // Initialize
+        renderFAQ();
+    </script>
 </body>
 </html>
