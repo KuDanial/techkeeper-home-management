@@ -153,6 +153,7 @@ header .icon-btn {
 /* Cards & Accordions */
 .content-area {
     padding: 1rem;
+    padding-bottom: 100px;
     flex: 1;
 }
 
@@ -429,9 +430,13 @@ header .icon-btn {
     background: white;
     border-top: 1px solid var(--border-color);
     position: sticky;
-    bottom: var(--bottom-nav-height);
+    bottom: 0;
     width: 100%;
     z-index: 50;
+}
+
+.bottom-nav-page .fixed-action-container {
+    bottom: var(--bottom-nav-height);
 }
 
 .btn-action {

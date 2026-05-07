@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div style="width: 50px; height: 50px; background: var(--primary-accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700;">H</div>
                     <div>
                         <h4 class="text-sm">Tengku Danial</h4>
+                        <p class="text-xs" style="color: var(--text-gray)">Premium Member</p>
                     </div>
                 </div>
                 <nav class="drawer-nav">
